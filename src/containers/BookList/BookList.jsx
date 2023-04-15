@@ -9,39 +9,52 @@ const BookList = () => {
   const { searchTerm } = useContext(SearchContext);
 
   const getBooks = async () => {
-    const response = await fetch(
-      `https://www.googleapis.com/books/v1/volumes?q=${searchTerm}`
-    );
-    const data = await response.json();
-    // console.log(data.items, "data.item");
-    setBooks(data.items);
+    if (searchTerm === "") {
+      console.log("page refreshed");
+    } else {
+      const response = await fetch(
+        `https://www.googleapis.com/books/v1/volumes?q=${searchTerm}`
+      );
+      const data = await response.json();
+      // console.log(data.items, "data.item");
+      setBooks(data.items);
+    }
   };
 
   console.log(books, "BOOKS");
 
   // fecthing when page loads or something
+
   useEffect(() => {
     getBooks(); // in here should be the search term
   }, [searchTerm]);
 
+  console.log(searchTerm, "SEARCH TERM");
+
   return (
     <div>
       <h1>BookList Page</h1>
+
       <div className={styles.List}>
-        {books.length === 0 ? (
-          <p>searching...</p>
+        {books === undefined ? (
+          <p>No books found</p>
+        ) : books.length < 1 ? (
+          <p>searching..</p>
         ) : (
-          books.map((book) => {
-            return (
-              <BookCard
-                key={book.etag}
-                id={book.id}
-                title={book.volumeInfo?.title ?? "no title"}
-                image={book.volumeInfo?.imageLinks?.thumbnail ?? "no image"}
-                author={book.volumeInfo?.authors ?? "no author found"}
-              />
-            );
-          })
+          <div>
+            <p>Results for {searchTerm}</p>
+            {books.map((book) => {
+              return (
+                <BookCard
+                  key={book.etag}
+                  id={book.id}
+                  title={book.volumeInfo?.title ?? "no title"}
+                  image={book.volumeInfo?.imageLinks?.thumbnail ?? "no image"}
+                  author={book.volumeInfo?.authors ?? "no author found"}
+                />
+              );
+            })}
+          </div>
         )}
       </div>
     </div>

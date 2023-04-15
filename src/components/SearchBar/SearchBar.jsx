@@ -8,7 +8,7 @@ const SearchBar = () => {
   const navigate = useNavigate();
 
   const handleChange = (e) => {
-    console.log(e.target.value);
+    // console.log(e.target.value);
     setSearchInput(e.target.value);
   };
 
@@ -16,12 +16,13 @@ const SearchBar = () => {
     e.preventDefault();
     setSearchTerm(searchInput);
     navigate("/books");
+    setSearchInput("");
   };
 
-  console.log(searchTerm, "SEARCH");
+  // console.log(searchTerm, "SEARCH");
   return (
     <form onSubmit={handleSubmit}>
-      <input type="text" onChange={handleChange} required />
+      <input type="text" value={searchInput} onChange={handleChange} required />
       <input type="submit" value="search" />
     </form>
   );

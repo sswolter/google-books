@@ -8,28 +8,7 @@ import BookPage from "./containers/BookPage/BookPage";
 import SearchProvider from "./context/SearchProvider";
 import { SearchContext } from "./context/SearchProvider";
 
-// fetch from api
-// set state for books
-
 function App() {
-  // const { searchTerm } = useContext(SearchContext);
-
-  // const getBooks = async () => {
-  //   const response = await fetch(
-  //     `https://www.googleapis.com/books/v1/volumes?q=${searchTerm}`
-  //   );
-  //   const data = await response.json();
-  //   // console.log(data.items, "data.item");
-  //   setBooks(data.items.flat());
-  // };
-
-  // console.log(books, "BOOKS");
-
-  // // fecthing when page loads or something
-  // useEffect(() => {
-  //   getBooks(); // in here should be the search term
-  // }, [searchTerm]);
-
   return (
     <SearchProvider>
       <BrowserRouter>
@@ -48,3 +27,7 @@ function App() {
 }
 
 export default App;
+
+// clear search after submit
+// display search results for SearchTerm
+// if search term doesnt exist > prevent api call
