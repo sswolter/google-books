@@ -1,45 +1,49 @@
-import "./App.css";
-import BooksPage from "./pages/BooksPage/BooksPage";
-import HomePage from "./pages/HomePage/HomePage";
+import { useEffect, useState, useContext } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Nav from "./components/Nav/Nav";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import BooksProvider from "./context/BooksProvider";
-import { useEffect, useState } from "react";
+import HomePage from "./containers/HomePage/HomePage";
+import "./App.css";
+import BookList from "./containers/BookList/BookList";
+import BookPage from "./containers/BookPage/BookPage";
+import SearchProvider from "./context/SearchProvider";
+import { SearchContext } from "./context/SearchProvider";
+
+// fetch from api
+// set state for books
 
 function App() {
-  console.log("APP PAGE");
+  // const { searchTerm } = useContext(SearchContext);
 
-  const [books, setBooks] = useState([]);
+  // const getBooks = async () => {
+  //   const response = await fetch(
+  //     `https://www.googleapis.com/books/v1/volumes?q=${searchTerm}`
+  //   );
+  //   const data = await response.json();
+  //   // console.log(data.items, "data.item");
+  //   setBooks(data.items.flat());
+  // };
 
-  const getBooks = async (searchTerm) => {
-    const response = await fetch(
-      `https://www.googleapis.com/books/v1/volumes?q=${searchTerm}`
-    );
+  // console.log(books, "BOOKS");
 
-    const data = await response.json();
-    // console.log(data, "this is data");
-    // console.log(data.items, "this is the actual array of books data");
-    setBooks(data.items.flat()); // sets books as array of 10 results
-  };
-
-  useEffect(() => {
-    getBooks("may gibbs"); // search term
-  }, []);
+  // // fecthing when page loads or something
+  // useEffect(() => {
+  //   getBooks(); // in here should be the search term
+  // }, [searchTerm]);
 
   return (
-    // <BooksProvider>
-    <BrowserRouter>
-      <div className="App">
-        <Nav />
-        <h6>"main app page"</h6>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/books" element={<BooksPage books={books} />} />
-          {/* passing books down to books page */}
-        </Routes>
-      </div>
-    </BrowserRouter>
-    // </BooksProvider>
+    <SearchProvider>
+      <BrowserRouter>
+        <div className="App">
+          <Nav />
+
+          <Routes>
+            <Route path="/" element={<HomePage /*books={books}*/ />} />
+            <Route path="/books" element={<BookList /*books={books}*/ />} />
+            <Route path="/books/:id" element={<BookPage />} />
+          </Routes>
+        </div>
+      </BrowserRouter>
+    </SearchProvider>
   );
 }
 

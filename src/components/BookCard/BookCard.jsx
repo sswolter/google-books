@@ -1,13 +1,16 @@
+import React from "react";
 import styles from "./BookCard.module.scss";
+import { NavLink } from "react-router-dom";
 
-const BookCard = ({ title, image, info, description, author }) => {
+const BookCard = ({ title, image, author, id, books }) => {
   return (
-    <div className={styles.Card}>
-      <h6>BookCard</h6>
-      <img className={styles.Image} src={image} alt="" />
-      <h2>{title}</h2>
-      <p>Authors: {author}</p>
-    </div>
+    <NavLink to={`/books/${id}`}>
+      <div className={styles.Card}>
+        <img src={image} alt="" />
+        <h2>{title}</h2>
+        <p>{author}</p>
+      </div>
+    </NavLink>
   );
 };
 
