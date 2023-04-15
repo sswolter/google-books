@@ -22,7 +22,13 @@ const SearchBar = () => {
   // console.log(searchTerm, "SEARCH");
   return (
     <form onSubmit={handleSubmit}>
-      <input type="text" value={searchInput} onChange={handleChange} required />
+      <input
+        type="text"
+        value={searchInput}
+        onChange={handleChange}
+        required
+        placeholder="Search "
+      />
       <input type="submit" value="search" />
     </form>
   );
