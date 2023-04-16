@@ -1,4 +1,25 @@
+@use "../../assets/palette.module.scss" as *;
 .Nav {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
   justify-content: space-between;
+  align-items: center;
+  padding: 70px 0px 30px 0px;
+
+  &_Home {
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: bold;
+    color: $text-light;
+    padding: 20px;
+  }
+
+  @media screen and (min-width: 600px) {
+    flex-direction: row;
+  }
+}
+
+span {
+  color: $primary-light;
 }

@@ -15,23 +15,39 @@
   transform: translate(-50%, -50%);
   background-color: $one;
   width: 80%;
+
+  @media screen and (max-width: 600px) {
+    overflow-y: scroll;
+    max-height: 80%;
+  }
 }
 
 .Container {
   display: flex;
   border-top: 1px solid $three;
   border-bottom: 1px solid $three;
-  margin: 40px 10px;
-  padding: 20px 0px;
+  margin: 40px 10px 40px 10px;
+  padding: 40px 0px;
+
+  @media screen and (max-width: 600px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 20px;
+  }
 }
 
 .Title {
   display: flex;
   flex-direction: row;
   align-items: center;
+  padding: 0px 20px;
+  @media screen and (max-width: 600px) {
+    text-align: center;
+  }
 }
 .Img {
-  padding: 0px 20px;
+  padding: 10px 20px;
   @media screen and (min-width: 600px) {
     > img {
       width: 200px;
@@ -39,18 +55,32 @@
   }
 }
 
+p {
+  line-height: 150%;
+}
 ul {
-  padding-left: 60px;
-  padding-top: 10px;
+  // padding-left: 20px;
+  // padding-top: 10px;
+  padding: 10px 20px;
 }
 
 li {
   list-style-type: none;
+  padding: 3px;
 }
-.closeModal {
+.Close {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 60px;
+  right: 30px;
+  background-color: $one;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  letter-spacing: 1px;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 .Open {
@@ -68,4 +98,13 @@ li {
     background-color: $four;
     color: $btn;
   }
+}
+
+.Desc {
+  padding-top: 10px;
+  // padding-right: 50px;
+}
+
+.Tag {
+  color: $text-light;
 }

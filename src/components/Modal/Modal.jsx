@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "./Modal.module.scss";
 
-const Modal = ({ title, author, image }) => {
+const Modal = ({ title, author, image, desc, date, publisher }) => {
   const [modal, setModal] = useState(false);
 
   const toggleModal = ({}) => {
@@ -20,24 +20,37 @@ const Modal = ({ title, author, image }) => {
         <div className={styles.Modal}>
           <div className={styles.Modal_Overlay}>
             <div className={styles.Modal_Content}>
-              <button className={styles.closeModal} onClick={toggleModal}>
-                close
+              <button className={styles.Close} onClick={toggleModal}>
+                CLOSE
               </button>
               <div className={styles.Container}>
                 <div className={styles.Img}>
                   <img src={image} alt="" />
                 </div>
                 <article className={styles.Info}>
-                  <div className={styles.Title}>
-                    <img
-                      src="../src/assets/chevron-right-svgrepo-com.svg"
-                      alt=""
-                    />
-                    <h2>{title}</h2>
-                  </div>
+                  <h2 className={styles.Title}>{title}</h2>
+
                   <ul>
                     <li>
-                      <p>{author}</p>
+                      <p>
+                        <span className={styles.Tag}>Author: </span>
+                        {author}
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        <span className={styles.Tag}>Published: </span>
+                        {date}
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        <span className={styles.Tag}>Publisher: </span>
+                        {publisher}
+                      </p>
+                    </li>
+                    <li className={styles.Desc}>
+                      <p>{desc}</p>
                     </li>
                   </ul>
                 </article>

@@ -21,10 +21,8 @@ const BookList = () => {
     }
   };
 
-  console.log(books, "BOOKS");
-
   useEffect(() => {
-    getBooks(); // in here should be the search term
+    getBooks();
   }, [searchTerm]);
 
   // console.log(searchTerm, "SEARCH TERM");
@@ -33,25 +31,33 @@ const BookList = () => {
     <div>
       <div className={styles.Page}>
         {books === undefined ? (
-          <p>No books found</p>
+          <p className={styles.Page_Results}>No books found</p>
         ) : books.length < 1 ? (
-          <p>searching..</p>
+          <p className={styles.Page_Results}>Searching..</p>
         ) : (
           <div>
             <p className={styles.Page_Results}>Results for "{searchTerm}"</p>
             <div className={styles.Grid}>
               {books.map((book) => {
                 return (
-                  <div className={styles.Grid_Item}>
+                  <div className={styles.Grid_Item} key={book.id}>
                     <BookCard
-                      key={book.etag}
-                      id={book.id}
+                      // key={book.id}
                       title={book.volumeInfo?.title ?? "no title"}
                       image={
                         book.volumeInfo?.imageLinks?.thumbnail ??
                         "src/assets/x-square-svgrepo-com.svg"
                       }
-                      author={book.volumeInfo?.authors ?? "no author found"}
+                      author={book.volumeInfo?.authors ?? "No author found"}
+                      snippet={book.searchInfo.textSnippet}
+                      description={
+                        book?.volumeInfo?.description ??
+                        "Description unavailable"
+                      }
+                      date={book?.volumeInfo?.publishedDate ?? "No year found"}
+                      publisher={
+                        book?.volumeInfo?.publisher ?? "No publisher found"
+                      }
                     />
                   </div>
                 );
