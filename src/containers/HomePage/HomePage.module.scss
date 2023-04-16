@@ -1,21 +1,56 @@
 @use "../../assets/palette.module.scss" as *;
 
+.Wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+}
 .Page {
   color: $text;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+
+  height: 100%;
 
   &_Title {
     display: flex;
     color: $text-light;
-
-    &_Main {
-      color: $primary-light;
-    }
   }
   &_Img {
     opacity: 50%;
-    max-width: 50%;
   }
+}
+h1 {
+  color: $text-light;
+  font-size: 40px;
+  padding-bottom: 20px;
+  @media screen and (min-width: 600px) {
+    font-size: 70px;
+  }
+}
+span {
+  color: $primary-light;
+}
+
+p {
+  font-size: 20px;
+}
+
+.Search {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+}
+
+.SearchBar {
+  position: relative;
+  bottom: 60px;
+}
+
+img {
+  max-width: 300px;
+  height: auto;
 }

@@ -10,7 +10,7 @@ function App() {
     <SearchProvider>
       <BrowserRouter>
         <div className="App">
-          <Nav />
+          {/* <Nav /> */}
 
           <Routes>
             <Route path="/" element={<HomePage /*books={books}*/ />} />

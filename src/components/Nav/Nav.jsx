@@ -6,7 +6,7 @@ const Nav = () => {
   return (
     <nav className={styles.Nav}>
       <NavLink to="/" className={styles.Nav_Home}>
-        <span>Google</span>Books
+        <span>Book</span>Search
       </NavLink>
       {/* <NavLink to="/books">Books List</NavLink> */}
       <SearchBar />

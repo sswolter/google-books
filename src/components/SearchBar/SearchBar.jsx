@@ -9,7 +9,7 @@ const SearchBar = () => {
   const navigate = useNavigate();
 
   const handleChange = (e) => {
-    console.log(e.target.value);
+    // console.log(e.target.value);
     setSearchInput(e.target.value);
   };
 

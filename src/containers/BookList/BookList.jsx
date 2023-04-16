@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import BookCard from "../../components/BookCard/BookCard";
 import styles from "./BookList.module.scss";
 import { SearchContext } from "../../context/SearchProvider";
-
+import Nav from "../../components/Nav/Nav";
 const BookList = () => {
   const [books, setBooks] = useState([]);
   const { searchTerm } = useContext(SearchContext);
@@ -29,6 +29,7 @@ const BookList = () => {
 
   return (
     <div>
+      <Nav />
       <div className={styles.Page}>
         {books === undefined ? (
           <p className={styles.Page_Results}>No books found</p>
@@ -49,7 +50,10 @@ const BookList = () => {
                         "src/assets/x-square-svgrepo-com.svg"
                       }
                       author={book.volumeInfo?.authors ?? "No author found"}
-                      snippet={book.searchInfo.textSnippet}
+                      snippet={
+                        book?.searchInfo?.textSnippet ??
+                        "Description unavailable"
+                      }
                       description={
                         book?.volumeInfo?.description ??
                         "Description unavailable"
