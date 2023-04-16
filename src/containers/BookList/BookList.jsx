@@ -38,7 +38,7 @@ const BookList = () => {
           <p>searching..</p>
         ) : (
           <div>
-            <p>Results for {searchTerm}</p>
+            <p className={styles.Page_Results}>Results for "{searchTerm}"</p>
             <div className={styles.Grid}>
               {books.map((book) => {
                 return (
@@ -48,7 +48,8 @@ const BookList = () => {
                       id={book.id}
                       title={book.volumeInfo?.title ?? "no title"}
                       image={
-                        book.volumeInfo?.imageLinks?.thumbnail ?? "no image"
+                        book.volumeInfo?.imageLinks?.thumbnail ??
+                        "src/assets/x-square-svgrepo-com.svg"
                       }
                       author={book.volumeInfo?.authors ?? "no author found"}
                     />
