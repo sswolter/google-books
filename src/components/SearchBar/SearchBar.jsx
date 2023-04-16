@@ -29,7 +29,8 @@ const SearchBar = () => {
         value={searchInput}
         onChange={handleChange}
         required
-        placeholder="Search "
+        placeholder="Search"
+        width="700px"
       />
       <button type="submit" className={styles.Form_Button}>
         <img

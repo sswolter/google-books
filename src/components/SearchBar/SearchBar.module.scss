@@ -9,7 +9,7 @@
   justify-content: space-between;
   align-items: center;
   outline: 1px solid $five;
-  // max-width: 698px;
+
   border: 1px solid $one;
 
   &:hover {
@@ -45,13 +45,7 @@
     }
     &_Img {
       width: 20px;
-      // border-left: 1.5px solid $text;
-      // padding-left: 7px;
       padding: 5px 1px 0 0;
     }
-  }
-
-  @media screen and (min-width: 500px) {
-    min-width: 350px;
   }
 }
