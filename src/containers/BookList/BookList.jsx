@@ -23,19 +23,15 @@ const BookList = () => {
 
   console.log(books, "BOOKS");
 
-  // fecthing when page loads or something
-
   useEffect(() => {
     getBooks(); // in here should be the search term
   }, [searchTerm]);
 
-  console.log(searchTerm, "SEARCH TERM");
+  // console.log(searchTerm, "SEARCH TERM");
 
   return (
     <div>
-      <h1>BookList Page</h1>
-
-      <div className={styles.List}>
+      <div className={styles.Page}>
         {books === undefined ? (
           <p>No books found</p>
         ) : books.length < 1 ? (
@@ -43,17 +39,23 @@ const BookList = () => {
         ) : (
           <div>
             <p>Results for {searchTerm}</p>
-            {books.map((book) => {
-              return (
-                <BookCard
-                  key={book.etag}
-                  id={book.id}
-                  title={book.volumeInfo?.title ?? "no title"}
-                  image={book.volumeInfo?.imageLinks?.thumbnail ?? "no image"}
-                  author={book.volumeInfo?.authors ?? "no author found"}
-                />
-              );
-            })}
+            <div className={styles.Grid}>
+              {books.map((book) => {
+                return (
+                  <div className={styles.Grid_Item}>
+                    <BookCard
+                      key={book.etag}
+                      id={book.id}
+                      title={book.volumeInfo?.title ?? "no title"}
+                      image={
+                        book.volumeInfo?.imageLinks?.thumbnail ?? "no image"
+                      }
+                      author={book.volumeInfo?.authors ?? "no author found"}
+                    />
+                  </div>
+                );
+              })}
+            </div>
           </div>
         )}
       </div>

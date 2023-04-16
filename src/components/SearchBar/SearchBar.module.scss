@@ -1,0 +1,33 @@
+@use "../../assets/palette.module.scss" as *;
+
+.Form {
+  //   border: 1px solid $primary;
+  height: 20px;
+  border-radius: 7px;
+  padding: 10px;
+  display: flex;
+  box-shadow: 4px 4px 16px 2px $secondary;
+
+  &_Input {
+    border: none;
+    outline: none;
+    border: none;
+    background: none;
+    padding-left: 5px;
+    font-size: 16px;
+  }
+
+  &_Button {
+    border: none;
+    background-color: white;
+    &_Img {
+      width: 20px;
+      border-left: 1.5px solid $text;
+      padding-left: 7px;
+    }
+  }
+}
+
+.Form:focus {
+  background-color: aliceblue;
+}

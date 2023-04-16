@@ -1,4 +1,14 @@
-.List {
+.Page {
   display: flex;
-  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.Grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  margin: auto;
+
+  &_Item {
+  }
 }

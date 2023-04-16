@@ -1,0 +1,22 @@
+@use "../../assets/palette.module.scss" as *;
+
+.Page {
+  color: $text;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+
+  &_Title {
+    display: flex;
+    color: $text-light;
+
+    &_Main {
+      color: $primary-light;
+    }
+  }
+  &_Img {
+    opacity: 50%;
+    max-width: 100%;
+  }
+}
