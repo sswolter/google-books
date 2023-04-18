@@ -13,7 +13,10 @@ function App() {
           {/* <Nav /> */}
 
           <Routes>
-            <Route path="/" element={<HomePage /*books={books}*/ />} />
+            <Route
+              path="/google-books/"
+              element={<HomePage /*books={books}*/ />}
+            />
             <Route path="/books" element={<BookList /*books={books}*/ />} />
           </Routes>
         </div>
