@@ -1,4 +1,4 @@
-@use "../../assets/palette.module.scss" as *;
+@use "../../styles/palette.module.scss" as *;
 .Page {
   display: flex;
   flex-direction: column;
@@ -24,8 +24,5 @@
 
   @media screen and (min-width: 1000px) {
     grid-template-columns: 1fr 1fr 1fr;
-  }
-
-  &_Item {
   }
 }

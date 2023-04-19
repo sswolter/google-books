@@ -1,5 +1,4 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Nav from "./components/Nav/Nav";
 import HomePage from "./containers/HomePage/HomePage";
 import "./App.css";
 import BookList from "./containers/BookList/BookList";
@@ -17,7 +16,10 @@ function App() {
               path="/google-books/"
               element={<HomePage /*books={books}*/ />}
             />
-            <Route path="/books" element={<BookList /*books={books}*/ />} />
+            <Route
+              path="/google-books/books"
+              element={<BookList /*books={books}*/ />}
+            />
           </Routes>
         </div>
       </BrowserRouter>

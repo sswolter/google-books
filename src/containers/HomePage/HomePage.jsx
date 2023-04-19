@@ -1,5 +1,3 @@
-import React from "react";
-import { useContext } from "react";
 import styles from "./HomePage.module.scss";
 import SearchBar from "../../components/SearchBar/SearchBar";
 
@@ -16,7 +14,7 @@ const HomePage = () => {
         <div className={styles.Search}>
           <SearchBar className={styles.SearchBar} />
           <img
-            src="./src/assets/autumn-of-reading-books-and-people-svgrepo-com.svg"
+            src="/assets/autumn-of-reading-books-and-people-svgrepo-com.svg"
             alt=""
             className={styles.Page_Img}
           />

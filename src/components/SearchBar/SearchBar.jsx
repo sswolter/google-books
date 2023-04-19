@@ -5,7 +5,7 @@ import styles from "./SearchBar.module.scss";
 
 const SearchBar = () => {
   const [searchInput, setSearchInput] = useState("");
-  const { searchTerm, setSearchTerm } = useContext(SearchContext);
+  const { setSearchTerm } = useContext(SearchContext);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -16,7 +16,7 @@ const SearchBar = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setSearchTerm(searchInput);
-    navigate("/books");
+    navigate("/google-books/books");
     setSearchInput("");
   };
 
@@ -34,7 +34,7 @@ const SearchBar = () => {
       />
       <button type="submit" className={styles.Form_Button}>
         <img
-          src="./src/assets/search-svgrepo-com.svg"
+          src="./assets/search-svgrepo-com.svg"
           alt=""
           className={styles.Form_Button_Img}
         />

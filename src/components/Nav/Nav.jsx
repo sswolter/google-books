@@ -8,7 +8,6 @@ const Nav = () => {
       <NavLink to="/google-books" className={styles.Nav_Home}>
         <span>Book</span>Search
       </NavLink>
-      {/* <NavLink to="/books">Books List</NavLink> */}
       <SearchBar />
     </nav>
   );

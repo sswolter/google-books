@@ -6,6 +6,7 @@ const Modal = ({ title, author, image, desc, date, publisher }) => {
 
   const toggleModal = ({}) => {
     setModal(!modal);
+
     const body = document.querySelector("body");
     modal ? body.classList.remove("overflow") : body.classList.add("overflow");
   };
@@ -13,7 +14,7 @@ const Modal = ({ title, author, image, desc, date, publisher }) => {
   return (
     <>
       <button className={styles.Open} onClick={toggleModal}>
-        Book Details
+        More Details
       </button>
 
       {modal && (

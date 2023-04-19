@@ -43,13 +43,16 @@ const BookList = () => {
                 return (
                   <div className={styles.Grid_Item} key={book.id}>
                     <BookCard
-                      // key={book.id}
                       title={book.volumeInfo?.title ?? "no title"}
                       image={
                         book.volumeInfo?.imageLinks?.thumbnail ??
-                        "src/assets/x-square-svgrepo-com.svg"
+                        "/assets/x-square-svgrepo-com.svg"
                       }
-                      author={book.volumeInfo?.authors ?? "No author found"}
+                      author={
+                        book.volumeInfo.authors === undefined
+                          ? "No author found"
+                          : book?.volumeInfo?.authors.join(", ")
+                      }
                       snippet={
                         book?.searchInfo?.textSnippet ??
                         "Description unavailable"
