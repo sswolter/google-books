@@ -34,7 +34,7 @@ const BookList = () => {
         {books === undefined ? (
           <p className={styles.Page_Results}>No books found</p>
         ) : books.length < 1 ? (
-          <p className={styles.Page_Results}>Searching..</p>
+          <p className={styles.Page_Results}>Searching...</p>
         ) : (
           <div>
             <p className={styles.Page_Results}>Results for "{searchTerm}"</p>

@@ -14,7 +14,7 @@ const HomePage = () => {
         <div className={styles.Search}>
           <SearchBar className={styles.SearchBar} />
           <img
-            src="/assets/autumn-of-reading-books-and-people-svgrepo-com.svg"
+            src="./assets/autumn-of-reading-books-and-people-svgrepo-com.svg"
             alt=""
             className={styles.Page_Img}
           />
